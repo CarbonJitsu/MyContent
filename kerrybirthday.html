@@ -11,11 +11,11 @@
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
         
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfan6PFa0ok4YaICx9SSujg6BrRSfZLxOnSPtZRxw3bQzvSiQwBE2gBUl3eCnujN4CfbzLCkSQ5n4tIKcB8GVrdtPh0iCOnwlTC1-tkJ4dIdqSfFQgq-XpPm5BRTpXcxy7SE2R0Q=s2000');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfan6PFa0ok4YaICx9SSujg6BrRSfZLxOnSPtZRxw3bQzvSiQwBE2gBUl3eCnujN4CfbzLCkSQ5n4tIKcB8GVrdtPh0iCOnwlTC1-tkJ4dIdqSfFQgq-XpPm5BRTpXcxy7SE2R0Q=s1600');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #1e293b;
+            background-color: #0f172a;
         }
         
         .reveal-overlay {
@@ -32,16 +32,52 @@
             100% { transform: translateY(0px); }
         }
         .float-anim { animation: float 4s ease-in-out infinite; }
+
+        @keyframes scrollLine {
+            0% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+        .scroll-indicator-line {
+            width: 1px;
+            height: 60px;
+            background-color: rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll-indicator-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #c5a059;
+            animation: scrollLine 2s infinite;
+        }
         
-        /* Mobile-specific adjustments */
         @media (max-width: 640px) {
             .mobile-h1 { font-size: 2.75rem !important; line-height: 1.2 !important; }
-            .mobile-h2 { font-size: 2.25rem !important; }
-            .mobile-padding { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+            .mobile-h2 { font-size: 2.5rem !important; }
         }
 
-        #main-content {
-            background-color: #ffffff;
+        #main-content { background-color: #ffffff; }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 177.77%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -49,7 +85,7 @@
 
     <!-- Cover Screen -->
     <div id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center reveal-overlay text-white p-6 text-center">
-        <div class="mb-12 float-anim mobile-padding">
+        <div class="mb-12 float-anim">
             <p class="tracking-[0.4em] text-xs mb-4 opacity-60 uppercase">A Gift for You</p>
             <h1 class="text-5xl md:text-7xl font-serif mb-4 mobile-h1">Happy Birthday Kerry</h1>
             <div class="h-px w-24 bg-gold mx-auto"></div>
@@ -65,21 +101,22 @@
         
         <!-- Hero Section -->
         <section class="relative h-screen flex items-center justify-center hero-bg text-white">
-            <div class="text-center px-6">
-                <p class="uppercase tracking-[0.4em] text-[10px] md:text-sm mb-4 animate-pulse">August 2026</p>
+            <div class="text-center px-6 z-10">
+                <p class="uppercase tracking-[0.4em] text-[10px] md:text-sm mb-4">August 2026</p>
                 <h2 class="text-5xl md:text-8xl font-serif mb-4 mobile-h2">Kolymbia, Rhodes</h2>
                 <p class="text-lg md:text-2xl font-light italic opacity-90">The Perfect Escape</p>
             </div>
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50">
-                <div class="w-px h-12 bg-white mx-auto animate-bounce"></div>
+            
+            <!-- Scroll Down Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+                <span class="text-[10px] uppercase tracking-[0.3em] opacity-60">Scroll Down</span>
+                <div class="scroll-indicator-line"></div>
             </div>
         </section>
 
         <!-- The Hotel Spotlight -->
         <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                <!-- Images stack first on mobile -->
                 <div class="order-2 lg:order-1">
                     <div class="grid grid-cols-2 gap-3 md:gap-4">
                         <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHBQEeBXzO0-nXeVEfbkGcKTVcLqk1q58b2fRJIZvZhB7GxKcJaSdRE3wuZvJ21z6Yk9Iu7Oo71Ag33ztMmlJSNtuz1NHbweQrgb_cDsfvOFv5G_ClpXWNqhTuXv7iyEtPeq7WF0Ldj2ZVG=s1360" class="rounded-lg shadow-md w-full h-40 md:h-64 object-cover" alt="Resort View">
@@ -87,17 +124,14 @@
                         <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFasVJOutRfcpl576Wfo1jFopFwPftoTYBfmiyx1ylvy35uQqtq2ALioFbX_Onb2xPsx9MBZCA9yoNMqExakJn4O2royr7uAOJhB7B7dvPtHNZm34zMNfCu9-C1zKRh08L3T1R4F0WXzHw=s1360" class="rounded-lg shadow-md col-span-2 mt-2 md:mt-4 w-full h-48 md:h-80 object-cover" alt="Bungalow Terrace">
                     </div>
                 </div>
-                <!-- Text content -->
                 <div class="order-1 lg:order-2">
                     <span class="gold-accent uppercase tracking-widest text-[10px] md:text-sm font-bold">The Destination</span>
                     <h2 class="text-3xl md:text-5xl font-serif mt-3 mb-6">Sentido Port Royal Villas & Spa</h2>
-                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-6 italic border-l-2 border-gold/30 pl-4">
-                        "A recently renovated 5-star resort on the serene shores of Kolymbia, Rhodes. Designed exclusively for adults..."
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8 italic border-l-2 border-gold/30 pl-4">
+                        "A 5-star resort on the serene shores of Kolymbia, Rhodes. Designed exclusively for adults..."
                     </p>
-                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
-                        With its tranquil atmosphere and award-winning beaches, it provides the perfect escape for us to relax and reconnect.
-                    </p>
-                    <div class="grid grid-cols-1 gap-4">
+                    
+                    <div class="grid grid-cols-1 gap-4 mb-8">
                         <div class="flex items-center gap-3">
                             <div class="h-px w-6 bg-gold"></div>
                             <span class="font-semibold text-sm">3 Nights of Pure Luxury</span>
@@ -111,22 +145,26 @@
                             <span class="font-semibold text-sm">All-Inclusive Dining</span>
                         </div>
                     </div>
+
+                    <a href="https://www.portroyal.gr/" target="_blank" class="inline-block px-8 py-4 bg-gold text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#b38f4d] transition-colors shadow-lg active:scale-95">
+                        Explore Official Website
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Full Width Image Section -->
-        <section class="h-[50vh] md:h-[70vh] relative overflow-hidden">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF59HJOMGmtGw9L71sBpRcqTFoQPYiXERQJJb-7PYHpuQ2chrf37T7Ddf73nsNFNi36CZpQJZIhxHRlzIKjZqaRHAPqoDDGx1czWePAv593WO--gk_NPny_5Fub7VQtoP3MqtNSn1SlRj4=s1360" class="w-full h-full object-cover" alt="Evening at the Resort">
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <div class="text-center px-6">
-                    <h3 class="text-white text-xl md:text-4xl font-serif italic">"Tranquil atmosphere and award-winning beaches..."</h3>
+        <!-- Video Section -->
+        <section class="py-16 bg-slate-50 px-6">
+            <div class="max-w-md mx-auto text-center">
+                <h3 class="text-2xl font-serif mb-8">A Glimpse of Paradise</h3>
+                <div class="video-container shadow-2xl">
+                    <iframe src="https://www.youtube.com/embed/WhmuilAVJXM" title="Port Royal Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
         <!-- Itinerary/Details -->
-        <section class="py-16 md:py-24 bg-slate-50 px-6">
+        <section class="py-16 md:py-24 px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100">
                     <div class="text-center mb-10">
@@ -156,7 +194,7 @@
                             <div>
                                 <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Package</p>
                                 <p class="font-bold text-lg">All Inclusive</p>
-                                <p class="text-gray-600 text-sm">Mediterranean Cuisine</p>
+                                <p class="text-gray-600 text-sm">Mediterranean Cuisine and Cocktails</p>
                             </div>
                         </div>
                     </div>
@@ -176,23 +214,13 @@
         function revealGift() {
             const cover = document.getElementById('cover');
             const main = document.getElementById('main-content');
-            
-            // Smooth slide up
             cover.style.transform = 'translateY(-100%)';
-            
             setTimeout(() => {
                 main.classList.remove('opacity-0');
                 main.classList.add('opacity-100');
                 window.scrollTo(0, 0);
             }, 600);
         }
-        
-        // Prevent zoom on double tap for iOS
-        document.addEventListener('touchstart', function (event) {
-          if (event.touches.length > 1) {
-            event.preventDefault();
-          }
-        }, { passive: false });
     </script>
 </body>
 </html>
