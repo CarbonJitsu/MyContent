@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Kerry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #1a1a1a; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfan6PFa0ok4YaICx9SSujg6BrRSfZLxOnSPtZRxw3bQzvSiQwBE2gBUl3eCnujN4CfbzLCkSQ5n4tIKcB8GVrdtPh0iCOnwlTC1-tkJ4dIdqSfFQgq-XpPm5BRTpXcxy7SE2R0Q=s2000');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #1e293b;
+        }
+        
+        .reveal-overlay {
+            background: #0f172a;
+            transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        
+        .gold-accent { color: #c5a059; }
+        .bg-gold { background-color: #c5a059; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 640px) {
+            .mobile-h1 { font-size: 2.75rem !important; line-height: 1.2 !important; }
+            .mobile-h2 { font-size: 2.25rem !important; }
+            .mobile-padding { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        }
+
+        #main-content {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Screen -->
+    <div id="cover" class="fixed inset-0 z-50 flex flex-col items-center justify-center reveal-overlay text-white p-6 text-center">
+        <div class="mb-12 float-anim mobile-padding">
+            <p class="tracking-[0.4em] text-xs mb-4 opacity-60 uppercase">A Gift for You</p>
+            <h1 class="text-5xl md:text-7xl font-serif mb-4 mobile-h1">Happy Birthday Kerry</h1>
+            <div class="h-px w-24 bg-gold mx-auto"></div>
+        </div>
+        <button onclick="revealGift()" class="group relative px-10 py-5 border border-white/30 rounded-full overflow-hidden transition-all active:scale-95">
+            <span class="relative z-10 tracking-[0.2em] uppercase text-xs font-semibold">Open your present</span>
+            <div class="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+        
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center hero-bg text-white">
+            <div class="text-center px-6">
+                <p class="uppercase tracking-[0.4em] text-[10px] md:text-sm mb-4 animate-pulse">August 2026</p>
+                <h2 class="text-5xl md:text-8xl font-serif mb-4 mobile-h2">Kolymbia, Rhodes</h2>
+                <p class="text-lg md:text-2xl font-light italic opacity-90">The Perfect Escape</p>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50">
+                <div class="w-px h-12 bg-white mx-auto animate-bounce"></div>
+            </div>
+        </section>
+
+        <!-- The Hotel Spotlight -->
+        <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+                <!-- Images stack first on mobile -->
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHBQEeBXzO0-nXeVEfbkGcKTVcLqk1q58b2fRJIZvZhB7GxKcJaSdRE3wuZvJ21z6Yk9Iu7Oo71Ag33ztMmlJSNtuz1NHbweQrgb_cDsfvOFv5G_ClpXWNqhTuXv7iyEtPeq7WF0Ldj2ZVG=s1360" class="rounded-lg shadow-md w-full h-40 md:h-64 object-cover" alt="Resort View">
+                        <img src="https://lh3.googleusercontent.com/proxy/j_-Lvs7jEiwkhuyrsgQevWu-dxax2njsN5RwkrjwZs3iIY27LtM25ZGptvl84dQixQek_0SjiL1F7qgJRF6JNivKawSjfDORxBD8790oenbVPZKn2rcBolXcR8_tVbawD9tylMieJ-g0tLkEOAvAD1FI2tjCWqk=s1360" class="rounded-lg shadow-md w-full h-40 md:h-64 object-cover mt-6 md:mt-8" alt="Poolside">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFasVJOutRfcpl576Wfo1jFopFwPftoTYBfmiyx1ylvy35uQqtq2ALioFbX_Onb2xPsx9MBZCA9yoNMqExakJn4O2royr7uAOJhB7B7dvPtHNZm34zMNfCu9-C1zKRh08L3T1R4F0WXzHw=s1360" class="rounded-lg shadow-md col-span-2 mt-2 md:mt-4 w-full h-48 md:h-80 object-cover" alt="Bungalow Terrace">
+                    </div>
+                </div>
+                <!-- Text content -->
+                <div class="order-1 lg:order-2">
+                    <span class="gold-accent uppercase tracking-widest text-[10px] md:text-sm font-bold">The Destination</span>
+                    <h2 class="text-3xl md:text-5xl font-serif mt-3 mb-6">Sentido Port Royal Villas & Spa</h2>
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-6 italic border-l-2 border-gold/30 pl-4">
+                        "A recently renovated 5-star resort on the serene shores of Kolymbia, Rhodes. Designed exclusively for adults..."
+                    </p>
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
+                        With its tranquil atmosphere and award-winning beaches, it provides the perfect escape for us to relax and reconnect.
+                    </p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="h-px w-6 bg-gold"></div>
+                            <span class="font-semibold text-sm">3 Nights of Pure Luxury</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-px w-6 bg-gold"></div>
+                            <span class="font-semibold text-sm">Bungalow Accommodation</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-px w-6 bg-gold"></div>
+                            <span class="font-semibold text-sm">All-Inclusive Dining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Width Image Section -->
+        <section class="h-[50vh] md:h-[70vh] relative overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF59HJOMGmtGw9L71sBpRcqTFoQPYiXERQJJb-7PYHpuQ2chrf37T7Ddf73nsNFNi36CZpQJZIhxHRlzIKjZqaRHAPqoDDGx1czWePAv593WO--gk_NPny_5Fub7VQtoP3MqtNSn1SlRj4=s1360" class="w-full h-full object-cover" alt="Evening at the Resort">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <div class="text-center px-6">
+                    <h3 class="text-white text-xl md:text-4xl font-serif italic">"Tranquil atmosphere and award-winning beaches..."</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary/Details -->
+        <section class="py-16 md:py-24 bg-slate-50 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-center mb-10">
+                        <h3 class="text-2xl md:text-3xl font-serif mb-2">The Details</h3>
+                        <div class="h-0.5 w-10 bg-gold mx-auto"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Outbound Flight</p>
+                                <p class="font-bold text-lg">Manchester → Rhodes</p>
+                                <p class="text-gray-600 text-sm">6th Aug | 12:50 PM</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Inbound Flight</p>
+                                <p class="font-bold text-lg">Rhodes → Manchester</p>
+                                <p class="text-gray-600 text-sm">9th Aug | 10:05 PM</p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Your Room</p>
+                                <p class="font-bold text-lg">Bungalow</p>
+                                <p class="text-gray-600 text-sm">With Balcony or Terrace</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-tighter text-gray-400 mb-1">Package</p>
+                                <p class="font-bold text-lg">All Inclusive</p>
+                                <p class="text-gray-600 text-sm">Mediterranean Cuisine</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Message -->
+        <section class="py-20 text-center px-6 bg-white">
+            <h2 class="text-4xl md:text-6xl font-serif mb-4">Happy Birthday</h2>
+            <p class="uppercase tracking-[0.3em] text-[10px] md:text-sm text-gold-600 font-bold">Love, Gareth</p>
+        </section>
+
+    </div>
+
+    <script>
+        function revealGift() {
+            const cover = document.getElementById('cover');
+            const main = document.getElementById('main-content');
+            
+            // Smooth slide up
+            cover.style.transform = 'translateY(-100%)';
+            
+            setTimeout(() => {
+                main.classList.remove('opacity-0');
+                main.classList.add('opacity-100');
+                window.scrollTo(0, 0);
+            }, 600);
+        }
+        
+        // Prevent zoom on double tap for iOS
+        document.addEventListener('touchstart', function (event) {
+          if (event.touches.length > 1) {
+            event.preventDefault();
+          }
+        }, { passive: false });
+    </script>
+</body>
+</html>
